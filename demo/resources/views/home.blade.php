@@ -1,6 +1,6 @@
 @extends('layout')
 @section('title')
-Wellcome to home
+Welcome to home
 @endsection
 @section('content')
 

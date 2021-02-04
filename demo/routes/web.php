@@ -2,8 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\testController;
+use App\Http\Controllers\authController;
 use App\Http\Controllers\userController;
+use App\Http\Controllers\productController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,9 +17,9 @@ use App\Http\Controllers\userController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', [userController::class, 'index']);
+Route::get('/login', function () {
+    return view('/login');
 });
-
-Route::get('home', [userController::class, 'index']);
-Route::get('/userlogin', [userController::class, 'userLogin']);
+Route::post('/login', [authController::class, 'login']);
+Route::get('list', [productController::class, 'index']);
